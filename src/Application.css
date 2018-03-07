@@ -1,0 +1,16 @@
+.Application {
+  padding: 5%;
+  padding-top: 0;
+  font-size: 16px;
+  text-align: center;
+}
+  
+.Items {
+  padding-top: 0;
+  padding-left: 39%;
+  padding-right: 39%;
+}
+
+article.Item {
+  text-align: left;
+}

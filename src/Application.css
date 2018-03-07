@@ -14,3 +14,11 @@
 article.Item {
   text-align: left;
 }
+
+.Item-remove{
+  margin-left: 3px;
+  color: #e91e63;
+  background: none;
+  border: none;
+  font-size: 13px;
+}

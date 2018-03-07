@@ -35,6 +35,30 @@ export default class Application extends React.Component{
         });
     }
 
+    toggleItem = (itemToggled) =>{
+        const items = this.state.items.map(item => {
+            if (item.id == itemToggled.id){
+                item.packed = !item.packed
+                return item
+            }
+            return item
+        })
+        this.setState({ items });
+    }
+
+    markAllUnPacked = () => {
+
+        const items = this.state.items.map(item => {
+            if (item.packed){    
+                item.packed = false
+            }
+            return item
+        })
+        this.setState({
+            items
+        });
+    }
+
     render(){
         const {items} = this.state;
         const packedItems = items.filter(item => item.packed);
@@ -43,9 +67,9 @@ export default class Application extends React.Component{
             <div className="Application">
                 <NewItem  onSubmit={this.addItem}/>
                 {/* <CountDown /> */}
-                <Items title="Unpacked Items" items={unPackedItems} onRemove={this.removeItem}/>
-                <Items title="Packed Items" items={packedItems} onRemove={this.removeItem}/>
-                <button className="button full-width">Mark all Unpacked</button>
+                <Items title="Unpacked Items" items={unPackedItems} onRemove={this.removeItem} toggleItem={this.toggleItem}/>
+                <Items title="Packed Items" items={packedItems} onRemove={this.removeItem} toggleItem={this.toggleItem}/>
+                <button className="button full-width" onClick={this.markAllUnPacked}>Mark all Unpacked</button>
             </div>
         )
     };

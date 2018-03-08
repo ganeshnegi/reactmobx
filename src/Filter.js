@@ -2,12 +2,10 @@ import React from 'react';
 
 
 export default class Filter extends React.Component{
-    state = {
 
-    }
-
-    handleChange(){
-
+    handleChange = (e) =>{
+        const {onChange} = this.props;
+        onChange(e.target.value)
     }
     
     render(){
